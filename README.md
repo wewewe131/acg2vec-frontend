@@ -1,6 +1,8 @@
 # acg2vec-frontend
 基于vuecli5.08构建的acg2vec前端
+https://cheerfun.dev/acg2vec/
 ![](https://github.com/wewewe131/acg2vec-frontend/blob/main/home.jpeg)
+
 ## Project setup
 ```
 npm install
