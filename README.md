@@ -1,5 +1,5 @@
 # acg2vec-frontend
-基于vuecli5.08构建的acg2vec前端#
+基于vuecli5.08构建的acg2vec前端
 
 ## Project setup
 ```
