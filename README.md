@@ -1,7 +1,9 @@
 # acg2vec-frontend
-基于vuecli5.08构建的acg2vec前端
-效果预览：https://cheerfun.dev/acg2vec/
-本项目后端接口来自：https://github.com/OysterQAQ/ACG2vec
+  基于vuecli5.08构建的acg2vec前端
+  
+  效果预览：https://cheerfun.dev/acg2vec/
+  
+  本项目后端接口来自：https://github.com/OysterQAQ/ACG2vec
 ![](https://github.com/wewewe131/acg2vec-frontend/blob/main/home.jpeg)
 
 ## Project setup
