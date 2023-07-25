@@ -128,7 +128,7 @@ let tryIt = () => {
                             formatter: (param: any) => {
                                 return [bookmarkPredictStr, viewPredictStr, sanityPredictStr][param.dimensionIndex]
                             },
-                            offset:[0,15]
+                            offset: [0, 12]
                         }
                     }
                 ]
@@ -144,9 +144,9 @@ let tryIt = () => {
                 type: 'value',
             },
             grid: {
-                height: '50%',
+                height: '60%',
                 left: '83',
-                right: '0',
+                right: '20',
                 top: '25%'
             },
             yAxis: {
@@ -180,9 +180,9 @@ let tryIt = () => {
                 type: 'value',
             },
             grid: {
-                height: '50%',
+                height: '60%',
                 left: '83',
-                right: '0',
+                right: '20',
                 top: '25%'
             },
             yAxis: {
@@ -215,9 +215,9 @@ let tryIt = () => {
                 type: 'value',
             },
             grid: {
-                height: '50%',
+                height: '60%',
                 left: '83',
-                right: '0',
+                right: '20',
                 top: '25%'
             },
             yAxis: {
@@ -266,27 +266,20 @@ let changeEchartOption = (e: Event) => {
     myChart.setOption(options[index])
     setTimeout(() => {
         myChart.resize()
-        if (index != 0)
-            setNum2End()
+        // if (index != 0)
+        //     setNum2End()
     })
     let option = myChart.getOption() as any
     console.log(option)
 }
-
-// window.addEventListener('resize', () => {
-//     console.log('onresize');
-//     flag.value = true
-//     if (myChart) {
-//         myChart.resize()
-//         setNum2End()
-//     }
-// })
-
-window.onresize = () => {
-    console.log('onresize');
+function isMobile() {
+    let flag = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return flag;
+}
+if(!isMobile())
+window.onresize = (e) => {
     flag.value = true
     if (myChart) {
-        myChart.resize()
         setNum2End()
     }
 }
@@ -305,8 +298,8 @@ onMounted(() => {
                 }
             })
     }
-
 })
+
 let setNum2End = () => {
     // setTimeout(function () {
     //     var width = myChart.getWidth();
@@ -385,22 +378,23 @@ select::-ms-expand {
     --darkgray: #8e79fc;
     position: relative;
     display: flex;
-    width: 80%;
+    width: 40%;
     height: 3em;
     border-radius: .25em;
     overflow: hidden;
+    font-size: 12px;
 }
 
 /* Arrow */
 .tabs::after {
     content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #34495e;
     transition: .25s all ease;
     pointer-events: none;
+    width: 10%;
 }
 
 /* Transition */

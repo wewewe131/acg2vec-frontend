@@ -42,11 +42,15 @@ const showLoading = ref(false)
 //     recanvasSize()
 //     showImage.value = true
 // })
-
-window.onresize = () => {
-    recanvasSize()
-    showImage.value = true
+function isMobile() {
+    let flag = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return flag;
 }
+if (!isMobile())
+    window.onresize = () => {
+        recanvasSize()
+        showImage.value = true
+    }
 
 let recanvasSize = () => {
     canvas.value.width = imageBox.value.clientWidth * window.devicePixelRatio
