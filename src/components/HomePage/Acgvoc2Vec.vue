@@ -2,11 +2,11 @@
     <div class="nf reveal-from-top">
         <div class="nh az">
             <h3 class="oe ok">acgvoc2vec</h3>
-            <p class="sz">
-                结构为sentence-transformers，使用其distiluse-base-multilingual-cased-v2预训练权重，以5e-5的学习率在动漫相关语句对数据集下进行微调，损失函数为MultipleNegativesRankingLoss。数据集主要包括：Bangumi、pixiv、AnimeList、维基百科、moegirl。
+            <p class="sz" v-html="$t('acgvoc2vec_detail')">
+
             </p>
             <div class="tl" style=" margin-top: 50px;overflow:hidden;border-radius: 10px;"><input class="_ te" v-model="tag"
-                    id="tag_input" placeholder="输入想搜索的标签，搜索出近似标签" style="border: none;background-color:#F8F9F9">
+                    id="tag_input" :placeholder="$t('acgvoc2vec_input')" style="border: none;background-color:#F8F9F9">
                 <button class="tbuttonn fbuttonl" @click="sendTry">Try it !</button>
             </div>
         </div>

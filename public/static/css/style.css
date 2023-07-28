@@ -2339,7 +2339,7 @@ textarea._ {
 		left: 0;
 		right: 0;
 		top: 100%;
-		z-index: 9999;
+		z-index: 100;
 		background: #262648;
 		max-height: 0;
 		opacity: 0;

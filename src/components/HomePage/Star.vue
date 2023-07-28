@@ -3,7 +3,7 @@
         <div class="tcontainern">
             <div class="cta-inner rd iu sx sk">
                 <div class="io">
-                    <h3 class="sz">⭐⭐⭐如果acg2vec对你有帮助，请点个star支持一下～⭐⭐⭐</h3>
+                    <h3 class="sz">{{ $t('star') }}</h3>
                 </div>
                 <div class="cta-action">
                     <a class="tbuttonn fbuttonl gbuttony" href="https://github.com/OysterQAQ/ACG2vec" target="_blank"><img
@@ -24,4 +24,13 @@ defineOptions({
 })
 
 </script>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.cta-inner{
+    flex-direction: column;
+    gap: 10px;
+    white-space: nowrap;
+
+}
+
+
+</style>

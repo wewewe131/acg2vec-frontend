@@ -2,10 +2,10 @@
     <div class="nf reveal-from-top">
         <div class="nh az">
             <h3 class="oe ok">illust2vec</h3>
-            <p class="sz">从DeepDanbooru模型去除预测头并对末尾层做均值池化的图片语义特征抽取模型</p>
+            <p class="sz" v-html="$t('illust2vec_detail')"></p>
             <div class="custom-file-input-wrapper" style=" margin-top: 50px;">
                 <label for="fileInput_2" class="custom-file-input-label">
-                    <span ref="selectImage">点击选择图片</span>
+                    <span ref="selectImage">{{ $t('image_select') }}</span>
                     <img ref="imageReShow" id="previewImage" class="custom-file-input-preview" alt="Preview"
                         style="display: none;">
                     <div id="placeholderIcon" class="custom-file-input-placeholder">

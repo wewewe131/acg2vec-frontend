@@ -6,8 +6,7 @@
                     <div class="nf">
                         <div class="rg nh az">
                             <h1 class="oe ok reveal-from-top" data-reveal-delay="150">ACG2Vec</h1>
-                            <p class="oe us reveal-from-top" data-reveal-delay="300">ACG2vec全称为Anime Comics Games to
-                                vector。将持续维护一些基于二次元相关的深度学习领域实践与探索。</p>
+                            <p class="oe us reveal-from-top" data-reveal-delay="300">{{ $t("abstract") }}</p>
                             <div class="reveal-from-top" data-reveal-delay="450">
                                 <a class="tbuttonn fbuttonl gbuttony" href="https://github.com/OysterQAQ/ACG2vec"
                                     target="_blank">

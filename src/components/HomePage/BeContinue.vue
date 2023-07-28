@@ -5,8 +5,8 @@
                 <div class="rv">
                     <div class="scontainero">
                         <img :src="picture" width="100" />
-                        <h2 class="oe ok">未完待续</h2>
-                        <p class="sz">将持续开发ACG相关深度学习应用</p>
+                        <h2 class="oe ok">{{ $t('to_be_continue') }}</h2>
+                        <p class="sz">{{ $t('continue') }}</p>
                         <h2 class="oe ok">...</h2>
                     </div>
                 </div>

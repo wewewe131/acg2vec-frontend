@@ -19,6 +19,11 @@ declare module '*.js' {
   export default content;
 }
 
+declare module '*.json'{
+  const content: any;
+  export default content;
+}
+
 declare module "slidePage" {
   const content: any;
   export default content;

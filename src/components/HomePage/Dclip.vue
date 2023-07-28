@@ -2,11 +2,10 @@
     <div class="nf reveal-from-top">
         <div class="nh az">
             <h3 class="oe ok">dclip</h3>
-            <p class="sz">
-                使用danburoo2021数据集对clip（ViT-L/14）模型进行微调。0-3 epoch学习率为4e-6，权重衰减为1e-3、4-8
-                epoch学习率为1e-6，权重衰减为1e-3，最终平均loss在5e-1左右。</p>
+            <p class="sz" v-html="$t('dclip_detail')">
+               </p>
             <div class="tl" style=" margin-top: 50px;overflow:hidden;border-radius: 10px;">
-                <input v-model="description" class="_ te" id="des_input" placeholder="输入想搜索的英文描述，搜索出符合描述的图片"
+                <input v-model="description" class="_ te" id="des_input" :placeholder="$t('dclip_input')"
                     style="border: none;background-color:#F8F9F9">
                 <button @click="toSearch" class="tbuttonn fbuttonl">Try it !</button>
             </div>
