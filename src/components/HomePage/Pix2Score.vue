@@ -2,12 +2,12 @@
     <div class="nf reveal-from-top">
         <div class="nh az">
             <h3 class="oe ok">pix2score</h3>
-            <p class="sz">基于resnet101的多任务模型，用于预测动漫插图的收藏数、浏览数与情色级别（训练中）</p>
+            <p class="sz" v-html="$t('pix2score_detail')"></p>
             <div class="custom-file-input-wrapper" style=" margin-top: 50px">
                 <input @change="changeFile" ref="fileInput" type="file" id="fileInput" class="custom-file-input"
                     accept="image/*">
                 <label for="fileInput" class="custom-file-input-label">
-                    <span ref="selectImage">点击选择图片</span>
+                    <span ref="selectImage">{{ $t('image_select') }}</span>
                     <img ref="imageReShow" id="previewImage" class="custom-file-input-preview" alt="Preview"
                         style="display: none;">
                     <div id="placeholderIcon" class="custom-file-input-placeholder">
@@ -323,7 +323,6 @@ let setNum2End = () => {
 }
 </script>
 <style lang="scss" scoped>
-:root {}
 
 .canvasBox {
     background-color: #fff;
@@ -333,8 +332,6 @@ let setNum2End = () => {
     align-items: center;
     justify-content: center;
 }
-
-.tabs {}
 
 .canvas {
     width: 100%;
