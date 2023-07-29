@@ -12,7 +12,8 @@
 		"illust2vec_detail": "<a href=\"https://github.com/KichangKim/DeepDanbooru\" target=\"_blank\" class=\"url\" >DeepDanbooru</a>的输入层至activation_96层作为特征抽取器，均值池化后的图片语义特征抽取模型。",
 		"to_be_continue": "未完待续",
 		"continue": "将持续开发ACG相关深度学习应用",
-		"star": "⭐⭐⭐如果acg2vec对你有帮助，请点个star支持一下～⭐⭐⭐",
+		"star": "⭐⭐⭐",
+		"star_detail": "如果acg2vec对你有帮助，请点个star支持一下～",
 		"acgvoc2vec_input": "输入标签，搜索出近似标签",
 		"dclip_input": "输入英文描述，搜索出符合描述的插画",
 		"image_select": "点击选择图片"
@@ -30,7 +31,8 @@
 		"illust2vec_detail": "The feature extractor of <a href=\"https://github.com/KichangKim/DeepDanbooru\" target=\"_blank\" class=\"url\" >DeepDanbooru</a> consists of the input layer up to activation_96 layer, and it serves as a model for extracting semantic image features. These features are obtained by applying mean pooling to the output of the activation_96 layer.",
 		"to_be_continue": "To be continued",
 		"continue": "Continuous development of ACG (Anime, Comics, Games) related deep learning applications will be pursued",
-		"star": "⭐⭐⭐If ACG2vec has been helpful to you, please show your support by giving it a star~⭐⭐⭐",
+		"star": "⭐⭐⭐",
+		"star_detail": "If ACG2vec has been helpful to you, please show your support by giving it a star~",
 		"acgvoc2vec_input": "Input a label, search for approximate labels",
 		"dclip_input": "Input an English description, search for illustrations",
 		"image_select": "Click to select an image"
@@ -48,7 +50,8 @@
 		"illust2vec_detail": "<a href=\"https://github.com/KichangKim/DeepDanbooru\" target=\"_blank\" class=\"url\" >DeepDanbooru</a> の入力層から activity_96 層までが特徴抽出器として使用され、平均プーリング後の画像意味特徴抽出モデルとして使用されます。",
 		"to_be_continue": "つづく",
 		"continue": "ACG関連の深層学習アプリケーションの開発を継続します",
-		"star": "⭐⭐⭐acg2vec が役に立った場合は、星をクリックしてサポートしてください~⭐⭐⭐",
+		"star": "⭐⭐⭐",
+		"star_detail": "acg2vec が役に立った場合は、星をクリックしてサポートしてください~",
 		"acgvoc2vec_input": "ラベルを入力して類似のラベルを検索します",
 		"dclip_input": "英語の説明を入力すると、その説明に一致するイラストが検索されます",
 		"image_select": "クリックして画像を選択してください"

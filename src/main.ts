@@ -4,6 +4,7 @@ import router from './router'
 import './style.scss'
 import Toast, { POSITION, PluginOptions } from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 import i18njson from '@/common/i18n.json'
 import {createI18n} from 'vue-i18n'
 const vueApp = createApp(App)

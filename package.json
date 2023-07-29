@@ -12,6 +12,7 @@
     "axios": "^1.4.0",
     "core-js": "^3.8.3",
     "echarts": "^5.4.3",
+    "flag-icons": "^6.9.2",
     "masonry-layout": "^4.2.2",
     "vue": "^3.3.4",
     "vue-i18n": "^9.2.2",
