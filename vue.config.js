@@ -30,6 +30,10 @@ module.exports = defineConfig({
     // subpage: 'src/subpage/main.js'
   },
   configureWebpack: {
+    optimization: {
+      splitChunks: {
+      }
+    },
     plugins: process.env.NODE_ENV === 'production' ? [
       new BundleAnalyzerPlugin(),
       // new JavaScriptObfuscator({
