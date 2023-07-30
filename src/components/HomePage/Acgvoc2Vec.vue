@@ -60,9 +60,10 @@ let recanvasSize = () => {
 }
 
 let sendTry = () => {
+    if (showImage.value)
+        recanvasSize()
     showImage.value = true
     showLoading.value = true
-    recanvasSize()
     getAcg2vecApiData(tag.value).then(res => {
         let wordOption: wordcloud.Options = {} as wordcloud.Options
         wordOption =

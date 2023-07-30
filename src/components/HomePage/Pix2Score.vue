@@ -74,7 +74,12 @@ let myChart = null as unknown as echart.ECharts
 let options = [] as echart.EChartsOption[]
 
 let tryIt = () => {
-    canvasBox.value.style.height = imageBox.value.clientHeight + 'px'
+    if (!imageReShow.value.src) {
+        useToast().error('请先选择图片')
+        return
+    }
+    if (flag.value)
+        canvasBox.value.style.height = imageBox.value.clientHeight + 'px'
     showLoading.value = true
     flag.value = true
     getPix2ScoreDate(data).then(res => {
@@ -276,13 +281,13 @@ function isMobile() {
     let flag = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     return flag;
 }
-if(!isMobile())
-window.onresize = (e) => {
-    flag.value = true
-    if (myChart) {
-        setNum2End()
+if (!isMobile())
+    window.onresize = (e) => {
+        flag.value = true
+        if (myChart) {
+            setNum2End()
+        }
     }
-}
 
 onMounted(() => {
     imageBox.value.onload = () => {
@@ -323,7 +328,6 @@ let setNum2End = () => {
 }
 </script>
 <style lang="scss" scoped>
-
 .canvasBox {
     background-color: #fff;
     width: 100%;

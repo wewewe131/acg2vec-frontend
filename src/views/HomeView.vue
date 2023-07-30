@@ -7,10 +7,10 @@
             <div class="tcontainern">
                 <div class="features-split-inner rd sk" style="padding-top:0;">
                     <div class="na np">
-                        <Acgvoc2vec id="Acgvoc2vec"/>
-                        <Dclip  id="Dclip"/>
-                        <Pix2Score id="Pix2Score"/>
-                        <illust2Vec id="illust2Vec"/>
+                        <Acgvoc2vec id="Acgvoc2vec" />
+                        <Dclip id="Dclip" />
+                        <Pix2Score id="Pix2Score" />
+                        <illust2Vec id="illust2Vec" />
                     </div>
                 </div>
                 <BeContinue />
@@ -32,17 +32,11 @@ import illust2Vec from '../components/HomePage/illust2Vec.vue'
 import BeContinue from '../components/HomePage/BeContinue.vue'
 import Star from '../components/HomePage/Star.vue'
 import Fotter from '../components/HomePage/Fotter.vue'
-// ts-ignore
+
 import init from "@/js/main.js";
 import { onMounted } from 'vue';
 onMounted(() => {
     init();
-
 })
 </script>
-<style lang="scss" scoped>
-.features-split-inner.rd.sk {
-    // border-bottom: 1px solid #D9E0F0;
-
-}
-</style>
+<style lang="scss" scoped></style>

@@ -62,6 +62,10 @@ let largeList: Array<WaterfallItem> = []
 let waterFallBox = ref(null as unknown as HTMLDivElement)
 
 let tryIt = () => {
+    if(!imageReShow.value.src){
+        useToast().error("请先选择图片")
+        return
+    }
     showLoading.value = true
     Waterfalldata.value.list = []
     waterFallBox.value.scrollTop = 0

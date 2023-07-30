@@ -64,6 +64,7 @@
 // import { getCurrentInstance } from 'vue';
 import { ref, watch } from 'vue';
 import picture from '../../../public/static/picture/logo.png'
+import "/node_modules/flag-icons/css/flag-icons.min.css";
 defineOptions({
     name: 'HomeHeader',
 })
