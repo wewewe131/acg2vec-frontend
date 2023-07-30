@@ -16,48 +16,53 @@
                                         :class="checklanguage($i18n.locale).flagclass"></span><span>{{
                                             checklanguage($i18n.locale).language }}</span></div>
                                 <ul class="items">
-                                    <li tabindex="0" class="item" @keydown.enter="() => $i18n.locale = 'zh'"
-                                        @click="() => $i18n.locale = 'zh'">
+                                    <li tabindex="0" class="item" @keydown.enter="$i18n.locale = 'zh'"
+                                        @click="$i18n.locale = 'zh'">
                                         <span class="fi fi-cn"></span>
                                         <span>中文</span>
                                     </li>
-                                    <li tabindex="0" class="item" @keydown.enter="() => $i18n.locale = 'en'"
-                                        @click="() => $i18n.locale = 'en'">
+                                    <li tabindex="0" class="item" @keydown.enter="$i18n.locale = 'en'"
+                                        @click="$i18n.locale = 'en'">
                                         <span class="fi fi-gb"></span>
                                         <span>English</span>
                                     </li>
-                                    <li tabindex="0" class="item" @keydown.enter="() => $i18n.locale = 'jp'"
-                                        @click="() => $i18n.locale = 'jp'">
+                                    <li tabindex="0" class="item" @keydown.enter="$i18n.locale = 'jp'"
+                                        @click="$i18n.locale = 'jp'">
                                         <span class="fi fi-jp"></span>
                                         <span>日本語</span>
                                     </li>
                                 </ul>
                             </li>
                             <li class="language_selector_pe"><a @click="showDialog">Language</a></li>
+                            <li v-show="dialogFlag">
+                                <div class="dialog" @click="dialogFlag = false; closeTop();">
+                                    <div class="content">
+                                        <div @click.stop="" class="current_language"><span
+                                                :class="checklanguage($i18n.locale).flagclass"></span><span>{{
+                                                    checklanguage($i18n.locale).language
+                                                }}</span></div>
+                                        <ul @click="dialogFlag = false">
+                                            <li @click="$i18n.locale = 'zh'"><span class="fi fi-cn"></span><span>中文</span>
+                                            </li>
+                                            <li @click=" $i18n.locale = 'en'"><span
+                                                    class="fi fi-gb"></span><span>English</span></li>
+                                            <li @click=" $i18n.locale = 'jp'"><span class="fi fi-jp"></span><span>日本語</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </div>
         </div>
-        <div v-show="dialogFlag" class="dialog" @click="dialogFlag = false">
-            <div class="content">
-                <div @click.stop="" class="current_language">Now:<span
-                        :class="checklanguage($i18n.locale).flagclass"></span><span>{{
-                            checklanguage($i18n.locale).language
-                        }}</span></div>
-                <ul @click="dialogFlag = false">
-                    <li @click="() => $i18n.locale = 'zh'"><span class="fi fi-cn"></span><span>中文</span>
-                    </li>
-                    <li @click="() => $i18n.locale = 'en'"><span class="fi fi-gb"></span><span>English</span></li>
-                    <li @click="() => $i18n.locale = 'jp'"><span class="fi fi-jp"></span><span>日本語</span></li>
-                </ul>
-            </div>
-        </div>
+
     </header>
 </template>
 <script lang="ts" setup>
 // import { getCurrentInstance } from 'vue';
-import { computed, ref, watch, watchEffect } from 'vue';
+import { ref, watch } from 'vue';
 import picture from '../../../public/static/picture/logo.png'
 defineOptions({
     name: 'HomeHeader',
@@ -72,6 +77,15 @@ defineOptions({
 //         value: v
 //     }
 // })
+
+function closeTop() {
+    let tc = document.querySelector('#tc') as HTMLElement
+    if (top) {
+        tc?.click()
+    }
+}
+
+
 let checklanguage = (str: string) => {
     switch (str) {
         case 'zh':
@@ -193,10 +207,13 @@ watch(dialogFlag, (newVal, oldVal) => {
 
     .content {
         width: 80%;
-        background-color: #fff;
+        background-color: #262648;
+
+        border-radius: 15px;
+        overflow: hidden;
 
         .current_language {
-            background-color: #fff;
+            color: #fff;
             margin: 0;
             padding: 0;
             list-style: none;
@@ -211,6 +228,7 @@ watch(dialogFlag, (newVal, oldVal) => {
             // display: none;
             margin: 0;
             padding: 0;
+            background-color: #fff;
 
             li {
                 margin: 0;
