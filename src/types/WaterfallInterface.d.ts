@@ -1,4 +1,4 @@
-type WaterfallItem = {
+declare type WaterfallItem = {
     src: string,
     title: string,
     id: string,
@@ -6,9 +6,10 @@ type WaterfallItem = {
     width: number
     ratio: number
 }
-interface Url {
+declare interface Url {
     squareMedium: string,
     medium: string,
     large: string,
     original: string
 }
+

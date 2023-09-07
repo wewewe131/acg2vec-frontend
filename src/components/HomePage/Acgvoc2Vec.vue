@@ -27,7 +27,6 @@ import { nextTick, onMounted, ref } from 'vue';
 import wordcloud from 'wordcloud'
 import Loading from '../Common/loading.vue';
 import { useToast } from 'vue-toastification';
-// eslint-disable-next-line
 defineOptions({
     name: 'Acgvoc2vec',
 })
@@ -110,7 +109,7 @@ onMounted(() => {
         if (window.location.hash == '#Acgvoc2vec')
             nextTick(() => {
                 let hash = window.location.hash
-                if (hash) {
+                if (hash) { 
                     let el = imageBox.value
                     console.log(el.cloneNode(true));
                     if (el) {
@@ -119,7 +118,7 @@ onMounted(() => {
                 }
             })
     }
-
 })
+
 </script>
 <style lang="scss" scoped></style>

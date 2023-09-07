@@ -1,15 +1,15 @@
 
-interface ApiResponse<T> {
+declare interface ApiResponse<T> {
     message: string,
     data: T
 }
-interface Acg2vecApiDataRes extends ApiResponse<Array<string>> {
+declare interface Acg2vecApiDataRes extends ApiResponse<Array<string>> {
 }
 
-interface Illust2vecApiDataRes extends ApiResponse<Array<ImageUrlItem>> {
+declare interface Illust2vecApiDataRes extends ApiResponse<Array<ImageUrlItem>> {
 
 }
-interface ImageUrlItem {
+declare interface ImageUrlItem {
     id: string
     artistId: Number
     title: string
@@ -48,10 +48,10 @@ interface ImageUrlItem {
     totalBookmarks: number,
     xrestrict: number
 }
-interface Pix2ScoreApiDataRes extends ApiResponse<Pix2ScoreData> {
+declare interface Pix2ScoreApiDataRes extends ApiResponse<Pix2ScoreData> {
 
 }
-interface Pix2ScoreData {
+declare interface Pix2ScoreData {
     bookmarkPredict: Array<number>,
     viewPredict: Array<number>,
     sanityPredict: Array<number>,

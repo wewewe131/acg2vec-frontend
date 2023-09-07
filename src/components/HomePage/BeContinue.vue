@@ -16,7 +16,6 @@
 </template>
 <script lang="ts" setup>
 import picture from '../../../public/static/picture/girl.gif'
-// eslint-disable-next-line
 defineOptions({
     name: 'BeContinue',
 })

@@ -11,6 +11,20 @@ export const debounce = (fn: (...args: any) => void, interval = 300) => {
     };
 }
 
-
-
 // getImgUrl
+// 使用 XHLHttpRequest 加载图片，返回图片的 base64 编码
+export const getImgUrl = (url:string) =>{
+    const req = new XMLHttpRequest()
+    req.open('GET', url, false)
+    req.onprogress = function(e:ProgressEvent<EventTarget>){
+        if(e.loaded === e.total){
+            let xhr = e.target as XMLHttpRequest
+            let blob = xhr.response as Blob
+            // blob 转 base64
+            let reader = new FileReader()
+            reader.readAsDataURL(blob)
+
+        }
+
+    }
+}

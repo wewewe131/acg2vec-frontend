@@ -75,6 +75,7 @@ watchEffect(() => {
     }
 })
 
+
 let setMasonry = () => {
     waterfall_container_component.value.scrollTop = 0
     new Masonry(grid.value, {
