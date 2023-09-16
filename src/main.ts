@@ -6,6 +6,7 @@ import Toast, { POSITION, PluginOptions } from 'vue-toastification'
 import 'vue-toastification/dist/index.css'
 import i18njson from '@/common/i18n.json'
 import { createI18n } from 'vue-i18n'
+
 const vueApp = createApp(App)
 
 vueApp.use(router)
