@@ -11,7 +11,7 @@
                         <Dclip id="Dclip" />
                         <Pix2Score id="Pix2Score" />
                         <illust2Vec id="illust2Vec" />
-                        <Deploy id="Deploy" />
+                        <CuganTf id="CuganTf" />
                     </div>
                 </div>
                 <BeContinue />
@@ -33,7 +33,7 @@ import illust2Vec from '../components/HomePage/illust2Vec.vue'
 import BeContinue from '../components/HomePage/BeContinue.vue'
 import Star from '../components/HomePage/Star.vue'
 import Fotter from '../components/HomePage/Fotter.vue'
-import Deploy from '../components/HomePage/Deploy.vue'
+import CuganTf from '../components/HomePage/CuganTf.vue'
 
 import init from "@/js/main.js";
 import { onMounted } from 'vue';

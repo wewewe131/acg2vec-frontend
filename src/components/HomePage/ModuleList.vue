@@ -26,6 +26,11 @@
                         <span v-html="$t('illust2vec_intro')"></span>
                     </p>
                 </li>
+                <li>
+                    <p><a href="#CuganTf">💡cugan_tf</a>:
+                        <span v-html="$t('cugan_tf_intro')"></span>
+                    </p>
+                </li>
             </ul>
         </div>
     </div>

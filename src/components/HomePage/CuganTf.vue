@@ -1,7 +1,7 @@
 <template>
     <div class="nf reveal-from-top">
         <div class="nh az">
-            <h3 class="oe ok">deploy</h3>
+            <h3 class="oe ok">cugan_tf</h3>
             <p class="sz" v-html="$t('cugan_tf_detail')"></p>
             <div class="custom-file-input-wrapper" style=" margin-top: 50px">
                 <input @change="changeFile" ref="fileInput" type="file" id="deploy-file-input" class="custom-file-input"
@@ -133,7 +133,7 @@ if (!isMobile())
 onMounted(() => {
     if (!imageBox.value) return
     imageBox.value.onload = () => {
-        if (window.location.hash == '#Deploy')
+        if (window.location.hash == '#CuganTf')
             nextTick(() => {
                 let hash = window.location.hash
                 if (hash) {
