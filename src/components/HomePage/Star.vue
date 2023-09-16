@@ -17,6 +17,7 @@
 </template>
 
 <script lang="ts"  setup>
+
 import picture from '../../../public/static/picture/github.svg'
 
 defineOptions({

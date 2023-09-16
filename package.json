@@ -10,6 +10,7 @@
   "dependencies": {
     "@tensorflow-models/mobilenet": "^2.1.1",
     "@tensorflow/tfjs": "^4.11.0",
+    "@tensorflow/tfjs-backend-wasm": "^4.11.0",
     "@types/wordcloud": "^1.2.0",
     "axios": "^1.4.0",
     "core-js": "^3.8.3",

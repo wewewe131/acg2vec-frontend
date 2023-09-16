@@ -24,10 +24,10 @@
                 <div class="canvas" ref='canvas' style="height: 50%;width: 100%;"></div>
                 <div v-show="!flag" class="tabs">
                     <select ref="selectOption" @change="changeEchartOption">
-                        <option value="0">雷达图</option>
-                        <option value="1">Bookmark Predict详情</option>
-                        <option value="2">View Predict详情</option>
-                        <option value="3">Sanity Predict详情</option>
+                        <option value="0">{{ $t('radar_chart') }}</option>
+                        <option value="1">{{ $t('bp') }}</option>
+                        <option value="2">{{ $t('vp') }}</option>
+                        <option value="3">{{ $t('sp') }}</option>
                     </select>
                 </div>
             </div>
@@ -45,6 +45,7 @@ import radargrade from '@/common/radar-grade'
 import { useToast } from 'vue-toastification'
 import * as echart from 'echarts'
 import picture from '../../../public/static/picture/3.jpeg'
+import { useI18n } from 'vue-i18n';
 
 let imageBox = ref(null as unknown as HTMLDivElement)
 let selectImage = ref(null as unknown as HTMLSpanElement)
@@ -54,7 +55,7 @@ let data: FormData = new FormData();
 let imageReShow = ref(null as unknown as HTMLImageElement)
 let selectOption = ref(null as unknown as HTMLSelectElement)
 let canvas = ref(null as unknown as HTMLDivElement)
-
+const {t} = useI18n()
 const changeFile = (e: any) => {
     data = new FormData();
     let file: File = e.target.files[0]
@@ -75,7 +76,7 @@ let options = [] as echart.EChartsOption[]
 
 let tryIt = () => {
     if (!imageReShow.value.src) {
-        useToast().error('请先选择图片')
+        useToast().warning(t('pick_pic_tip'))
         return
     }
     if (flag.value)
@@ -255,7 +256,7 @@ let tryIt = () => {
         flag.value = false
         showLoading.value = false
     }).catch(err => {
-        useToast().error('请求超时')
+        useToast().warning(t('timeout_tip'))
         flag.value = true
         showLoading.value = false
     })

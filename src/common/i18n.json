@@ -15,10 +15,22 @@
 		"to_be_continue": "未完待续",
 		"continue": "将持续开发ACG相关深度学习应用",
 		"star": "⭐⭐⭐",
+		"pick_pic_tip":"请先选择图片",
+		"error_tip":"生成失败，请刷新页面后重试",
+		"timeout_tip":"请求超时",
+		"image_size_tip":"图片大小不能大于512x512",
 		"star_detail": "如果acg2vec对你有帮助，请点个star支持一下～",
 		"acgvoc2vec_input": "输入标签，搜索出近似标签",
 		"dclip_input": "输入英文描述，搜索出符合描述的插画",
-		"image_select": "点击选择图片"
+		"image_select": "点击选择图片",
+		"bp":"Bookmark predict详情",
+		"vp":"View predict详情",
+		"sp":"Sanity predict详情",
+		"no-denoise":"无降噪",
+		"conservative":"保守",
+		"denoise3x":"3x降噪",
+		"radar_chart":"雷达图",
+		"download":"下载"
 
 	},
 	"en": {
@@ -37,10 +49,22 @@
 		"to_be_continue": "To be continued",
 		"continue": "Continuous development of ACG (Anime, Comics, Games) related deep learning applications will be pursued",
 		"star": "⭐⭐⭐",
+		"pick_pic_tip":"Please select a picture first",
+		"error_tip":"Generation failed, please refresh the page and try again",
+		"timeout_tip":"Request timed out",
+		"image_size_tip":"Image size cannot be larger than 512x512",
 		"star_detail": "If ACG2vec has been helpful to you, please show your support by giving it a star~",
 		"acgvoc2vec_input": "Input a label, search for approximate labels",
 		"dclip_input": "Input an English description, search for illustrations",
-		"image_select": "Click to select an image"
+		"image_select": "Click to select an image",
+		"bp":"Bookmark predict detail",
+		"vp":"View predict detail",
+		"sp":"Sanity predict detail",
+		"no-denoise":"no-denoise",
+		"conservative":"conservative",
+		"denoise3x":"denoise3x",
+		"radar_chart":"radar chart",
+		"download":"download"
 	},
 	"jp": {
 		"abstract": "ACG2vec の正式名は、アニメ・コミック・ゲーム・トゥ・ベクターです。二次元相関に基づく深層学習の分野での実践と探求は引き続き維持されます。",
@@ -58,9 +82,21 @@
 		"to_be_continue": "つづく",
 		"continue": "ACG関連の深層学習アプリケーションの開発を継続します",
 		"star": "⭐⭐⭐",
+		"pick_pic_tip":"最初に写真を選択してください",
+		"error_tip":"生成に失敗しました。ページを更新してもう一度お試しください",
+		"timeout_tip":"リクエストはタイムアウトしました",
+		"image_size_tip":"画像サイズは 512x512 より大きくすることはできません",
 		"star_detail": "acg2vec が役に立った場合は、星をクリックしてサポートしてください~",
 		"acgvoc2vec_input": "ラベルを入力して類似のラベルを検索します",
 		"dclip_input": "英語の説明を入力すると、その説明に一致するイラストが検索されます",
-		"image_select": "クリックして画像を選択してください"
+		"image_select": "クリックして画像を選択してください",
+		"bp":"Bookmark predict 詳細",
+		"vp":"View predict 詳細",
+		"sp":"Sanity predict 詳細",
+		"no-denoise":"no-denoise",
+		"conservative":"conservative",
+		"denoise3x":"denoise3x",
+		"radar_chart":"radar chart",
+		"download":"download"
 	}
 }

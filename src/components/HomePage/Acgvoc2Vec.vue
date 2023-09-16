@@ -27,10 +27,11 @@ import { nextTick, onMounted, ref } from 'vue';
 import wordcloud from 'wordcloud'
 import Loading from '../Common/loading.vue';
 import { useToast } from 'vue-toastification';
+import { useI18n } from 'vue-i18n';
 defineOptions({
     name: 'Acgvoc2vec',
 })
-
+const {t} = useI18n()
 const imageBox = ref('' as unknown as HTMLDivElement)
 const showImage = ref(true);
 const tag = ref('')
@@ -100,7 +101,7 @@ let sendTry = () => {
     }).catch(err => {
         showImage.value = true
         showLoading.value = false
-        useToast().error('请求超时')
+        useToast().error(t('timeout_tip'))
     })
 }
 

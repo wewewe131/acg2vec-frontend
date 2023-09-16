@@ -37,6 +37,8 @@ import { ref, onMounted, nextTick } from 'vue';
 import Loading from '../Common/loading.vue'
 import Waterfall from '../Common/Waterfall.vue';
 import { useToast } from 'vue-toastification'
+import { useI18n } from 'vue-i18n';
+const {t} = useI18n()
 let imageBox = ref(null as unknown as HTMLDivElement)
 let selectImage = ref(null as unknown as HTMLSpanElement)
 let flag = ref(true)
@@ -63,7 +65,7 @@ let waterFallBox = ref(null as unknown as HTMLDivElement)
 
 let tryIt = () => {
     if(!imageReShow.value.src){
-        useToast().error("请先选择图片")
+        useToast().warning(t('pick_pic_tip'))
         return
     }
     showLoading.value = true
@@ -85,7 +87,7 @@ let tryIt = () => {
         showLoading.value = false
     }).catch((err: any) => {
         flag.value = true
-        useToast().error("请求超时")
+        useToast().error(t('timeout_tip'))
         showLoading.value = false
     })
 }

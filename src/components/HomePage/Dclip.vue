@@ -23,13 +23,14 @@
     </div>
 </template>
 <script lang="ts" setup>
+import { useI18n } from 'vue-i18n';
 import picture from '../../../public/static/picture/2.jpeg'
 import { searchIllustByDCLIP } from '../../api/api';
 import Waterfall from '../Common/Waterfall.vue';
 import Loading from '../Common/loading.vue'
 import { ref, onMounted, nextTick } from 'vue';
 import { useToast } from 'vue-toastification'
-
+const {t} = useI18n()
 let description = ref('')
 let flag = ref(true)
 let Waterfalldata = ref({} as { list: WaterfallItem[] })
@@ -56,7 +57,7 @@ const toSearch = () => {
     }).catch(err => {
         flag.value = true
         showLoading.value = false
-        useToast().error('请求超时')
+        useToast().error(t('timeout_tip'))
     })
 }
 

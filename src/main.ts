@@ -17,13 +17,15 @@ vueApp.use(Toast, {
 const i18n = createI18n({
     locale: 'zh',
     fallbackLocale: 'en',
-    messages: i18njson
+    messages: i18njson,
+    allowComposition: true
 })
 
 vueApp.use(i18n)
 
 vueApp.config.errorHandler = (err, vm, info) => {
-    console.log(err, vm, info)
+    if (process.env.NODE_ENV != "production")
+        console.log(err, vm, info)
 }
 
 vueApp.mount('#app')

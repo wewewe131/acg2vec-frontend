@@ -18,11 +18,11 @@
             </div>
             <div class="select-btn">
                 <input id="radio1" type="radio" name="modles" v-model="modleIndex" class="button-modles" value="0" />
-                <label for="radio1">保守</label>
+                <label for="radio1">{{ $t('conservative') }}</label>
                 <input id="radio2" type="radio" name="modles" v-model="modleIndex" class="button-modles" value="1" />
-                <label for="radio2">无降噪</label>
+                <label for="radio2">{{ $t('no-denoise') }}</label>
                 <input id="radio3" type="radio" name="modles" v-model="modleIndex" class="button-modles" value="2" />
-                <label for="radio3">降噪3X</label>
+                <label for="radio3">{{ $t('denoise3x') }}</label>
             </div>
             <button @click="tryIt" class="tbuttonn fbuttonl">Try it !</button>
         </div>
@@ -32,10 +32,7 @@
                 <div class="image" ref='image' style="height: 50%;width: 100%;">
                     <canvas class="canvas" ref='canvas' style="width: 100%;"></canvas>
                     <div>
-                        <button style="color: #58678c;
-    border: 1px solid #e5e5e5;
-    padding: 15px 50px;
-    cursor: pointer;" @click="download">下载</button>
+                        <button class="tbuttonn fbuttonl" @click="download">{{ $t('download') }}</button>
                     </div>
                 </div>
             </div>
@@ -50,24 +47,27 @@ import { ref, onMounted, nextTick, computed } from 'vue';
 import Loading from '../Common/loading.vue'
 import { useToast } from 'vue-toastification'
 import picture from '../../../public/static/picture/5.jpeg'
-
+import "@tensorflow/tfjs-backend-wasm"
 import * as tf from '@tensorflow/tfjs';
-import { loadGraphModel } from '@tensorflow/tfjs-converter';
+import { useI18n } from 'vue-i18n';
 const image = ref<HTMLDivElement | null>()
 const imageBox = ref<HTMLDivElement | null>()
 const selectImage = ref<HTMLSpanElement | null>()
 const imageReShow = ref<HTMLImageElement | null>()
 const canvas = ref<HTMLCanvasElement | null>()
 const fileInput = ref<HTMLInputElement | null>()
+const { t } = useI18n()
 let showLoading = ref(false)
 let flag = ref(true)
 let modleIndex = ref(0)
 let data: FormData = new FormData();
-
+let sourceImage = new Image();
+let imageName = "";
 const changeFile = (e: any) => {
     data = new FormData();
     let file: File = e.target.files[0]
     let reader: FileReader = new FileReader()
+    imageName = file.name.split('.')[0]
     reader.readAsDataURL(file)
     reader.onload = (e) => {
         if (!imageReShow.value || !selectImage.value) return
@@ -79,14 +79,20 @@ const changeFile = (e: any) => {
 const download = () => {
     if (!canvas.value) return
     let a = document.createElement("a")
-    a.href = canvas.value.toDataURL();
-    a.download = "image";
-    a.click()
+    fetch(canvas.value.toDataURL("image/png"))
+        .then(res => res.blob()).then(blob => {
+            a.href = URL.createObjectURL(blob)
+            a.download = `${imageName}_up2x_${['conservative', 'no-denoise', 'denoise3x'][modleIndex.value]}.png`;
+            a.click()
+        })
+
+
 }
 
-const tryIt = () => {
+
+const tryIt = async () => {
     if (!imageReShow.value?.src) {
-        useToast().error('请先选择图片')
+        useToast().warning(t('pick_pic_tip'))
         return
     }
     flag.value = true
@@ -95,30 +101,38 @@ const tryIt = () => {
         if (imageBox.value && image.value)
             image.value.style.height = imageBox.value.clientHeight + 'px'
     })
+    if (isMobile()) {
+        await tf.setBackend("wasm")
+    }
+    else {
+        await tf.setBackend("webgl")
+    }
 
     const render = (url: string) => {
         tf.loadGraphModel(url).then(async (model) => {
-            if (!imageReShow.value) return
-            let tfImage = tf.browser.fromPixels(imageReShow.value)
 
+            if (!sourceImage) return
+            let tfImage = tf.browser.fromPixels(sourceImage)
             let tfImage4d = tfImage.expandDims(0) as tf.Tensor4D;
 
             let predictions = await model.executeAsync(tfImage4d) as tf.Tensor;
 
             let squeeze = tf.squeeze(predictions) as tf.Tensor3D
+
             flag.value = false
             if (!canvas.value) return
-            tf.browser.toPixels(squeeze, canvas.value);
             canvas.value.height = squeeze.shape[0] * window.devicePixelRatio
             canvas.value.width = squeeze.shape[1] * window.devicePixelRatio
+            tf.browser.toPixels(squeeze, canvas.value);
+            showLoading.value = false
+        }).catch(() => {
+            useToast().warning(t('error_tip'))
             showLoading.value = false
         });
     }
     const models = ['models/cugan_tfjs_conservative/model.json', 'models/cugan_tfjs_no-denoise/model.json', 'models/cugan_tfjs_denoise3x/model.json']
     render(process.env.BASE_URL + models[modleIndex.value])
 }
-
-
 
 function isMobile() {
     let flag = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -151,13 +165,15 @@ onMounted(() => {
         if (!el || !selectImage.value || !fileInput.value) return
         if (el.naturalWidth * el.naturalHeight > 512 * 512) {
             fileInput.value.value = ''
-            useToast().warning("图片不能大于512*512")
+            useToast().warning(t('image_size_tip'))
             el.style.display = 'none'
             selectImage.value.style.display = 'block'
         }
         else {
             el.style.display = 'block'
             selectImage.value.style.display = 'none'
+            sourceImage = new Image()
+            sourceImage.src = el.src
         }
     }
 })
